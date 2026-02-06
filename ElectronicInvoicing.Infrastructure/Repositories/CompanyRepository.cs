@@ -10,6 +10,7 @@ public class CompanyRepository(AppDbContext repositoryContext) : BaseRepository<
     public async Task<Company?> GetCompanyByIdAsync(Guid companyId)
     {
         return await FindByCondiction(c=>c.Id == companyId, false)
+            .Include(c=>c.Invoices)
             .SingleOrDefaultAsync();
     }
 
@@ -17,9 +18,10 @@ public class CompanyRepository(AppDbContext repositoryContext) : BaseRepository<
     {
         return await FindAllAsync(trackChanges)
             .OrderBy(c=>c.Name)
+            .Include(c=>c.Invoices)
             .ToListAsync();
     }
-
+    
     public async Task<Company> CreateCompanyAsync(Company company)
     { 
         await AddAsync(company);
