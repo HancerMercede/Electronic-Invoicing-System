@@ -1,6 +1,5 @@
 ﻿using ElectronicInvoicing.Infrastructure.Context;
 using ElectronicInvoicing.Infrastructure.Contracts;
-using ElectronicInvoicing.Infrastructure.Repositories;
 using ElectronicInvoicing.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
