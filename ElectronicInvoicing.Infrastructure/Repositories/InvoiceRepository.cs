@@ -1,6 +1,7 @@
-﻿using ElectronicInvoicing.Domain.Entities;
+﻿using ElectronicInvoicing.Domain.Contracts;
+using ElectronicInvoicing.Domain.Contracts.RepositoryContracts;
+using ElectronicInvoicing.Domain.Entities;
 using ElectronicInvoicing.Infrastructure.Context;
-using ElectronicInvoicing.Infrastructure.Contracts;
 using Microsoft.EntityFrameworkCore;
 
 namespace ElectronicInvoicing.Infrastructure.Repositories;
@@ -20,14 +21,14 @@ public class InvoiceRepository(RepositoryContext repositoryContext): BaseReposit
         return await FindByCondiction(i=>i.CompanyId == companyId, trackChanges).ToListAsync();
     }
 
-    public async Task<Invoice> CreateCompanyAsync(Guid companyId, Invoice invoice)
+    public async Task<Invoice> CreateInvoiceAsync(Guid companyId, Invoice invoice)
     {
         invoice.CompanyId = companyId;
         await AddAsync(invoice);
         return invoice;
     }
 
-    public async Task DeleteCompanyAsync(Guid companyId, Invoice invoice)
+    public async Task DeleteInvoiceAsync(Guid companyId, Invoice invoice)
     {
         var dbInvoice = await FindByCondiction(i => i.CompanyId == companyId && i.Id == invoice.Id, false).SingleOrDefaultAsync();
         if (dbInvoice is not null)

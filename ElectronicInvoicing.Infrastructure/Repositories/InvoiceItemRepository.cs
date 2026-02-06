@@ -1,6 +1,7 @@
-﻿using ElectronicInvoicing.Domain.Entities;
+﻿using ElectronicInvoicing.Domain.Contracts;
+using ElectronicInvoicing.Domain.Contracts.RepositoryContracts;
+using ElectronicInvoicing.Domain.Entities;
 using ElectronicInvoicing.Infrastructure.Context;
-using ElectronicInvoicing.Infrastructure.Contracts;
 using Microsoft.EntityFrameworkCore;
 
 namespace ElectronicInvoicing.Infrastructure.Repositories;

@@ -1,7 +1,6 @@
 ﻿using ElectronicInvoicing.Domain.Entities;
-using ElectronicInvoicing.Infrastructure.Repositories;
 
-namespace ElectronicInvoicing.Infrastructure.Contracts;
+namespace ElectronicInvoicing.Domain.Contracts.RepositoryContracts;
 
 public interface IInvoiceItemRepository
 {

@@ -1,10 +1,11 @@
 ﻿using ElectronicInvoicing.Domain.Entities;
 
-namespace ElectronicInvoicing.Infrastructure.Contracts;
+namespace ElectronicInvoicing.Domain.Contracts.ServicesContracts;
 
-public interface ICompanyRepository
+public interface ICompanyService
 {
     Task<Company?> GetCompanyByIdAsync(Guid companyId);
+    
     Task<IEnumerable<Company>>GetAllCompanies(bool trackChanges);
     
     Task<Company> CreateCompanyAsync(Company company);

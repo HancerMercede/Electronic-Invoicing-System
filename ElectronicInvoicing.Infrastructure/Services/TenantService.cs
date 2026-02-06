@@ -1,4 +1,4 @@
-﻿using ElectronicInvoicing.Infrastructure.Contracts;
+﻿using ElectronicInvoicing.Domain.Contracts.ServicesContracts;
 using Microsoft.AspNetCore.Http;
 
 namespace ElectronicInvoicing.Infrastructure.Services;

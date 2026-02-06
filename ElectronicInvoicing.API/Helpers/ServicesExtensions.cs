@@ -1,5 +1,8 @@
-﻿using ElectronicInvoicing.Infrastructure.Context;
-using ElectronicInvoicing.Infrastructure.Contracts;
+﻿using ElectronicInvoicing.Domain.Contracts;
+using ElectronicInvoicing.Domain.Contracts.RepositoryContracts;
+using ElectronicInvoicing.Domain.Contracts.ServicesContracts;
+using ElectronicInvoicing.Infrastructure.Context;
+using ElectronicInvoicing.Infrastructure.Repositories;
 using ElectronicInvoicing.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +25,11 @@ public static class ServicesExtensions
         {
             services.AddHttpContextAccessor();
             services.AddScoped<ITenantService, TenantService>();
+        }
+
+        public void ConfigureUnitOfWork()
+        {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }
