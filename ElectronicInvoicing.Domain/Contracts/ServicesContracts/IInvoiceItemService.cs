@@ -1,6 +1,13 @@
-﻿namespace ElectronicInvoicing.Domain.Contracts.ServicesContracts;
+﻿using ElectronicInvoicing.Domain.Entities;
+
+namespace ElectronicInvoicing.Domain.Contracts.ServicesContracts;
 
 public interface IInvoiceItemService
 {
+    Task<InvoiceItem?> GetInvoiceItemById(Guid invoiceId, Guid invoiceItemId);
+    Task<IEnumerable<InvoiceItem>>GetAllInvoiceItems(Guid invoiceId, bool trackChanges);
     
+    Task<InvoiceItem> CreateInvoiceItem(Guid invoiceId, InvoiceItem invoiceItem);
+    
+    Task DeleteInvoiceItem(Guid invoiceId, InvoiceItem invoiceItem);
 }
