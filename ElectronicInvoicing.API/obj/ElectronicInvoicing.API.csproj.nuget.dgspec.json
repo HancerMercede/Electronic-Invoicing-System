@@ -1245,6 +1245,10 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "FirmaXadesNetCore": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[10.0.2, )"
