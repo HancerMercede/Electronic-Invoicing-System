@@ -633,6 +633,16 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
+      },
+      "ElectronicInvoicing.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/ElectronicInvoicing.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ElectronicInvoicing.Domain.dll": {}
+        }
       }
     }
   },
@@ -2125,10 +2135,16 @@
         "system.composition.typedparts.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "ElectronicInvoicing.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ElectronicInvoicing.Domain/ElectronicInvoicing.Domain.csproj",
+      "msbuildProject": "../ElectronicInvoicing.Domain/ElectronicInvoicing.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "ElectronicInvoicing.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 10.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.2",
       "Microsoft.EntityFrameworkCore.Relational >= 10.0.2",
@@ -2167,7 +2183,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\ElectronicInvoicing\\ElectronicInvoicing.Domain\\ElectronicInvoicing.Domain.csproj": {
+              "projectPath": "E:\\ElectronicInvoicing\\ElectronicInvoicing.Domain\\ElectronicInvoicing.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

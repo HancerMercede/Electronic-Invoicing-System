@@ -13,12 +13,13 @@ public static class ServicesExtensions
         services.AddDbContext<AppDbContext>(opt =>
         {
             opt.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
-                x => x.MigrationsAssembly("ElectronicInvoicing.Infra"));
+                x => x.MigrationsAssembly("ElectronicInvoicing.Infrastructure"));
         });
     }
 
     public static void ConfigureTenantService(this IServiceCollection services)
     {
+        services.AddHttpContextAccessor();
         services.AddScoped<ITenantService, TenantService>();
     }
 }

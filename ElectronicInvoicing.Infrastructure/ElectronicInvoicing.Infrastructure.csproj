@@ -17,4 +17,8 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ElectronicInvoicing.Domain\ElectronicInvoicing.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
