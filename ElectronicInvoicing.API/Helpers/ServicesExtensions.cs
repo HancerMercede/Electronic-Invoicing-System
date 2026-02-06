@@ -8,18 +8,21 @@ namespace ElectronicInvoicing.API.Helpers;
 
 public static class ServicesExtensions
 {
-    public static void ConfigureContext(this IServiceCollection services, IConfiguration configuration)
+    extension(IServiceCollection services)
     {
-        services.AddDbContext<AppDbContext>(opt =>
+        public void ConfigureContext(IConfiguration configuration)
         {
-            opt.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
-                x => x.MigrationsAssembly("ElectronicInvoicing.Infrastructure"));
-        });
-    }
+            services.AddDbContext<AppDbContext>(opt =>
+            {
+                opt.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
+                    x => x.MigrationsAssembly("ElectronicInvoicing.Infrastructure"));
+            });
+        }
 
-    public static void ConfigureTenantService(this IServiceCollection services)
-    {
-        services.AddHttpContextAccessor();
-        services.AddScoped<ITenantService, TenantService>();
+        public void ConfigureTenantService()
+        {
+            services.AddHttpContextAccessor();
+            services.AddScoped<ITenantService, TenantService>();
+        }
     }
 }
