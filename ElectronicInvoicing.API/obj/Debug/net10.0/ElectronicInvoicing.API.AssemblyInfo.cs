@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ElectronicInvoicing.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d9aa04a62b661b8c6a4222c0a794c0f0cb0e008")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9df6915da3a6910eff9ca86a955a511b008743c6")]
 [assembly: System.Reflection.AssemblyProductAttribute("ElectronicInvoicing.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ElectronicInvoicing.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

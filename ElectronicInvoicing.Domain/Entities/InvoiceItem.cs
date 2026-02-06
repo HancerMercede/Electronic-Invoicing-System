@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ElectronicInvoicing.Domain.Contracts;
 
 namespace ElectronicInvoicing.Domain.Entities;
 
-public class InvoiceItem
+public class InvoiceItem:ITenantEntity
 {
     [Key]
     public Guid Id { get; set; }
@@ -29,4 +30,5 @@ public class InvoiceItem
 
     // Navegación
     public virtual Invoice Invoice { get; set; } = null!;
+    public Guid CompanyId { get; set; }
 }
