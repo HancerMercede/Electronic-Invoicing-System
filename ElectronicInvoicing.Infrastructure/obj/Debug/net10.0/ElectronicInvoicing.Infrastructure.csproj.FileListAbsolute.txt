@@ -1,0 +1,14 @@
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\bin\Debug\net10.0\ElectronicInvoicing.Infrastructure.deps.json
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\bin\Debug\net10.0\ElectronicInvoicing.Infrastructure.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\bin\Debug\net10.0\ElectronicInvoicing.Infrastructure.pdb
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\ElectronicInvoicing.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\ElectronicInvoicing.Infrastructure.AssemblyInfoInputs.cache
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\ElectronicInvoicing.Infrastructure.AssemblyInfo.cs
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\ElectronicInvoicing.Infrastructure.csproj.CoreCompileInputs.cache
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\ElectronicInvoicing.Infrastructure.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\refint\ElectronicInvoicing.Infrastructure.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\ElectronicInvoicing.Infrastructure.pdb
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\ref\ElectronicInvoicing.Infrastructure.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\bin\Debug\net10.0\ElectronicInvoicing.Infrastructure.runtimeconfig.json
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\ElectronicInvoicing.Infrastructure.csproj.AssemblyReference.cache
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\ElectronicInvoicing.Infrastructure.genruntimeconfig.cache

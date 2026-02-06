@@ -1,0 +1,11 @@
+E:\ElectronicInvoicing\ElectronicInvoicing.Domain\bin\Debug\net10.0\ElectronicInvoicing.Domain.deps.json
+E:\ElectronicInvoicing\ElectronicInvoicing.Domain\bin\Debug\net10.0\ElectronicInvoicing.Domain.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Domain\bin\Debug\net10.0\ElectronicInvoicing.Domain.pdb
+E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\ElectronicInvoicing.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\ElectronicInvoicing.Domain.AssemblyInfoInputs.cache
+E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\ElectronicInvoicing.Domain.AssemblyInfo.cs
+E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\ElectronicInvoicing.Domain.csproj.CoreCompileInputs.cache
+E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\ElectronicInvoicing.Domain.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\refint\ElectronicInvoicing.Domain.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\ElectronicInvoicing.Domain.pdb
+E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\ref\ElectronicInvoicing.Domain.dll

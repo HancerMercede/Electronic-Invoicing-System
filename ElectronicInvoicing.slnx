@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ElectronicInvoicing.API/ElectronicInvoicing.API.csproj" />
+  <Project Path="ElectronicInvoicing.Domain/ElectronicInvoicing.Domain.csproj" />
+  <Project Path="ElectronicInvoicing.Infrastructure/ElectronicInvoicing.Infrastructure.csproj" />
+</Solution>
