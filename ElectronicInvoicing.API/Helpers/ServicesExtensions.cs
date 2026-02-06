@@ -1,4 +1,5 @@
-﻿using ElectronicInvoicing.Domain.Contracts;
+﻿using ElectronicInvoicing.Application.Services;
+using ElectronicInvoicing.Domain.Contracts;
 using ElectronicInvoicing.Domain.Contracts.RepositoryContracts;
 using ElectronicInvoicing.Domain.Contracts.ServicesContracts;
 using ElectronicInvoicing.Infrastructure.Context;
@@ -30,6 +31,11 @@ public static class ServicesExtensions
         public void ConfigureUnitOfWork()
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+        }
+
+        public void ConfiguringServiceManager()
+        {
+            services.AddScoped<IServiceManager, ServiceManager>();
         }
     }
 }

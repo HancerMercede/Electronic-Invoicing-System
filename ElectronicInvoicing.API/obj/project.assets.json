@@ -669,6 +669,19 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
+      "ElectronicInvoicing.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "ElectronicInvoicing.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ElectronicInvoicing.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ElectronicInvoicing.Application.dll": {}
+        }
+      },
       "ElectronicInvoicing.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -2226,6 +2239,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "ElectronicInvoicing.Application/1.0.0": {
+      "type": "project",
+      "path": "../ElectronicInvoicing.Application/ElectronicInvoicing.Application.csproj",
+      "msbuildProject": "../ElectronicInvoicing.Application/ElectronicInvoicing.Application.csproj"
+    },
     "ElectronicInvoicing.Domain/1.0.0": {
       "type": "project",
       "path": "../ElectronicInvoicing.Domain/ElectronicInvoicing.Domain.csproj",
@@ -2239,6 +2257,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "ElectronicInvoicing.Application >= 1.0.0",
       "ElectronicInvoicing.Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 10.0.2",
       "Microsoft.EntityFrameworkCore >= 10.0.2",
@@ -2278,6 +2297,9 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
+            "E:\\ElectronicInvoicing\\ElectronicInvoicing.Application\\ElectronicInvoicing.Application.csproj": {
+              "projectPath": "E:\\ElectronicInvoicing\\ElectronicInvoicing.Application\\ElectronicInvoicing.Application.csproj"
+            },
             "E:\\ElectronicInvoicing\\ElectronicInvoicing.Infrastructure\\ElectronicInvoicing.Infrastructure.csproj": {
               "projectPath": "E:\\ElectronicInvoicing\\ElectronicInvoicing.Infrastructure\\ElectronicInvoicing.Infrastructure.csproj"
             }

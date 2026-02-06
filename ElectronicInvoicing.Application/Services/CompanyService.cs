@@ -18,11 +18,14 @@ public class CompanyService(IUnitOfWork unitOfWork) : ICompanyService
 
     public async Task<Company> CreateCompanyAsync(Company company)
     {
-        return await  unitOfWork.CompanyRepository.CreateCompanyAsync(company);
+        var result = await unitOfWork.CompanyRepository.CreateCompanyAsync(company);
+        await unitOfWork.SaveChanges();
+        return result;
     }
 
     public async Task DeleteCompanyAsync(Company company)
     {
         await unitOfWork.CompanyRepository.DeleteCompanyAsync(company);
+        await unitOfWork.SaveChanges();
     }
 }

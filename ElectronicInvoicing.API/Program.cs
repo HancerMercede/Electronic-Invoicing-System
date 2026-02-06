@@ -8,6 +8,7 @@ builder.Services.AddOpenApi();
 builder.Services.ConfigureContext(builder.Configuration);
 builder.Services.ConfigureTenantService();
 builder.Services.ConfigureUnitOfWork();
+builder.Services.ConfiguringServiceManager();
 
 var app = builder.Build();
 

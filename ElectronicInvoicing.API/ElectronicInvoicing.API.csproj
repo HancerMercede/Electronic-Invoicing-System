@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ElectronicInvoicing.Application\ElectronicInvoicing.Application.csproj" />
     <ProjectReference Include="..\ElectronicInvoicing.Infrastructure\ElectronicInvoicing.Infrastructure.csproj" />
   </ItemGroup>
 
