@@ -16,7 +16,7 @@ public class InvoiceItem:ITenantEntity
     [Required]
     public string Description { get; set; } = string.Empty;
 
-    public double Quantity { get; set; }
+    public decimal Quantity { get; set; }
     
     public decimal UnitPrice { get; set; }
     
