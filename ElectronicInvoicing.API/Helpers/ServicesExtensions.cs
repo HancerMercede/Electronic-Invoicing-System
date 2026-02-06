@@ -11,7 +11,7 @@ public static class ServicesExtensions
     {
         public void ConfigureContext(IConfiguration configuration)
         {
-            services.AddDbContext<AppDbContext>(opt =>
+            services.AddDbContext<RepositoryContext>(opt =>
             {
                 opt.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
                     x => x.MigrationsAssembly("ElectronicInvoicing.Infrastructure"));

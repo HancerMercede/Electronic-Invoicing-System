@@ -5,10 +5,10 @@ namespace ElectronicInvoicing.Infrastructure.Contracts;
 
 public interface IInvoiceItemRepository
 {
-    Task<InvoiceItem?> GetInvoiceItemById(Guid invoiceItemId);
-    Task<IEnumerable<InvoiceItem>>GetAllInvoiceItems(bool trackChanges);
+    Task<InvoiceItem?> GetInvoiceItemById(Guid invoiceId, Guid invoiceItemId);
+    Task<IEnumerable<InvoiceItem>>GetAllInvoiceItems(Guid invoiceId, bool trackChanges);
     
-    Task<InvoiceItem> CreateInvoiceItem(InvoiceItem invoiceItem);
+    Task<InvoiceItem> CreateInvoiceItem(Guid invoiceId, InvoiceItem invoiceItem);
     
-    Task DeleteInvoiceItem(InvoiceItem invoiceItem);
+    Task DeleteInvoiceItem(Guid invoiceId, InvoiceItem invoiceItem);
 }

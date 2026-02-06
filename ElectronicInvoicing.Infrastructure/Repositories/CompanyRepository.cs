@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ElectronicInvoicing.Infrastructure.Repositories;
 
-public class CompanyRepository(AppDbContext repositoryContext) : BaseRepository<Company>(repositoryContext), ICompanyRepository
+public class CompanyRepository(RepositoryContext repositoryContext) : BaseRepository<Company>(repositoryContext), ICompanyRepository
 {
     public async Task<Company?> GetCompanyByIdAsync(Guid companyId)
     {

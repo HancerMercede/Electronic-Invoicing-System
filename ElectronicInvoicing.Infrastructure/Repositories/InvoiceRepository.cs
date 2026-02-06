@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ElectronicInvoicing.Infrastructure.Repositories;
 
-public class InvoiceRepository(AppDbContext repositoryContext): BaseRepository<Invoice>(repositoryContext), IInvoiceRepository
+public class InvoiceRepository(RepositoryContext repositoryContext): BaseRepository<Invoice>(repositoryContext), IInvoiceRepository
 {
     public async Task<Invoice?> GetInvoiceById(Guid companyId, Guid invoiceId, bool trackChanges)
     {

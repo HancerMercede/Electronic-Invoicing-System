@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ElectronicInvoicing.Infrastructure.Repositories;
 
-public abstract class BaseRepository<T>(AppDbContext repositoryContext):IBaseRepository<T> where T:class
+public abstract class BaseRepository<T>(RepositoryContext repositoryContext):IBaseRepository<T> where T:class
 {
 
     public IQueryable<T> FindByCondiction(Expression<Func<T, bool>> expression, bool trackChanges)=>
