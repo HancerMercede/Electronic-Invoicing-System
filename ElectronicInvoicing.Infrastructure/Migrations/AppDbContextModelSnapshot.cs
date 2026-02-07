@@ -17,6 +17,7 @@ namespace ElectronicInvoicing.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("public")
                 .HasAnnotation("ProductVersion", "10.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
@@ -71,7 +72,7 @@ namespace ElectronicInvoicing.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Companies");
+                    b.ToTable("Companies", "public");
                 });
 
             modelBuilder.Entity("ElectronicInvoicing.Domain.Entities.Invoice", b =>
@@ -89,6 +90,9 @@ namespace ElectronicInvoicing.Infrastructure.Migrations
                     b.Property<string>("CustomerRnc")
                         .HasMaxLength(11)
                         .HasColumnType("character varying(11)");
+
+                    b.Property<string>("DgiiRawResponse")
+                        .HasColumnType("text");
 
                     b.Property<string>("DgiiResponseCode")
                         .HasColumnType("text");
@@ -124,11 +128,21 @@ namespace ElectronicInvoicing.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("QrContent")
+                        .HasColumnType("text");
+
                     b.Property<string>("RejectionReason")
                         .HasColumnType("text");
 
                     b.Property<string>("SecurityCode")
                         .HasColumnType("text");
+
+                    b.Property<DateTime?>("SentAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("SignedXmlPath")
+                        .HasMaxLength(255)
+                        .HasColumnType("character varying(255)");
 
                     b.Property<int>("Status")
                         .HasColumnType("integer");
@@ -142,11 +156,14 @@ namespace ElectronicInvoicing.Infrastructure.Migrations
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("numeric");
 
+                    b.Property<DateTime?>("ValidatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Invoices");
+                    b.ToTable("Invoices", "public");
                 });
 
             modelBuilder.Entity("ElectronicInvoicing.Domain.Entities.InvoiceItem", b =>
@@ -175,8 +192,8 @@ namespace ElectronicInvoicing.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<double>("Quantity")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("Quantity")
+                        .HasColumnType("numeric");
 
                     b.Property<decimal>("TaxAmount")
                         .HasColumnType("numeric");
@@ -188,16 +205,18 @@ namespace ElectronicInvoicing.Infrastructure.Migrations
 
                     b.HasIndex("InvoiceId");
 
-                    b.ToTable("InvoiceItems");
+                    b.ToTable("InvoiceItems", "public");
                 });
 
             modelBuilder.Entity("ElectronicInvoicing.Domain.Entities.Invoice", b =>
                 {
-                    b.HasOne("ElectronicInvoicing.Domain.Entities.Company", null)
+                    b.HasOne("ElectronicInvoicing.Domain.Entities.Company", "Company")
                         .WithMany("Invoices")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Company");
                 });
 
             modelBuilder.Entity("ElectronicInvoicing.Domain.Entities.InvoiceItem", b =>

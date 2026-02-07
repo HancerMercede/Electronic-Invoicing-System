@@ -1,4 +1,6 @@
-﻿using ElectronicInvoicing.Application.Services;
+﻿using System.Net;
+using System.Net.Http.Headers;
+using ElectronicInvoicing.Application.Services;
 using ElectronicInvoicing.Domain.Contracts;
 using ElectronicInvoicing.Domain.Contracts.RepositoryContracts;
 using ElectronicInvoicing.Domain.Contracts.ServicesContracts;
@@ -36,6 +38,45 @@ public static class ServicesExtensions
         public void ConfiguringServiceManager()
         {
             services.AddScoped<IServiceManager, ServiceManager>();
+        }
+
+        public void ConfigureDgiiService()
+        {
+            services.AddScoped<IDgiiService, DgiiService>();
+        }
+
+        public void ConfigureInvoiceProcessorService()
+        {
+            services.AddScoped<IInvoiceProcessorService, InvoiceProcessorService>();
+        }
+
+        public void ConfiguredHttpClient(IConfiguration configuration)
+        {
+            services.AddHttpClient("DgiiClient",opt =>
+            {
+                var baseUrl = configuration["DgiiRemoteServices:AuthUrl"]; 
+                opt.BaseAddress = new Uri(baseUrl!);
+                
+                opt.DefaultRequestVersion = HttpVersion.Version11;
+                opt.DefaultVersionPolicy = HttpVersionPolicy.RequestVersionExact;
+                
+                opt.DefaultRequestHeaders.Accept.Clear();
+                opt.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                
+                opt.DefaultRequestHeaders.Add("User-Agent", "ElectronicInvoicingApp/1.0");
+            });
+            
+            services.AddScoped<IDgiiService, DgiiService>();
+        }
+
+        public void ConfigureSignatureService()
+        {
+            services.AddScoped<ISignatureService, SignatureService>();
+        }
+        
+        public void ConfigureXmlService()
+        {
+            services.AddScoped<IXmlService, XmlService>();
         }
     }
 }

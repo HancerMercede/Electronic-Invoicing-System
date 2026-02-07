@@ -11,9 +11,9 @@ public class InvoiceRepository(RepositoryContext repositoryContext): BaseReposit
     public async Task<Invoice?> GetInvoiceById(Guid companyId, Guid invoiceId, bool trackChanges)
     {
         return await FindByCondiction(i => i.CompanyId == companyId && i.Id == invoiceId, trackChanges)
+            .Include(i=>i.Company)
             .Include(i => i.Items)
             .SingleOrDefaultAsync();
-
     }
 
     public async Task<IEnumerable<Invoice>> GetAllInvoice(Guid companyId, bool trackChanges)
@@ -26,6 +26,13 @@ public class InvoiceRepository(RepositoryContext repositoryContext): BaseReposit
         invoice.CompanyId = companyId;
         await AddAsync(invoice);
         return invoice;
+    }
+
+    public async Task<Invoice> UpdateAsync(Guid companyId, Invoice invoice)
+    {
+        invoice.CompanyId = companyId;
+         await Update(invoice);
+         return invoice;
     }
 
     public async Task DeleteInvoiceAsync(Guid companyId, Invoice invoice)

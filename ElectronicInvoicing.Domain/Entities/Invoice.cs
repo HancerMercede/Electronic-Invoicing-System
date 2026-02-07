@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using ElectronicInvoicing.Domain.Contracts;
 using ElectronicInvoicing.Domain.Enums;
 
@@ -48,7 +49,19 @@ public class Invoice: ITenantEntity
     public string? DgiiResponseCode { get; set; } 
     public string? RejectionReason { get; set; }
 
-
+    public DateTime? SentAt { get; set; }        
+    public DateTime? ValidatedAt { get; set; }
+    
+    [StringLength(255)]
+    public string? SignedXmlPath { get; set; }
+    
+    public string? DgiiRawResponse { get; set; }
+    
+    public string? QrContent { get; set; }
+    
     public virtual ICollection<InvoiceItem> Items { get; set; } = new List<InvoiceItem>();
     public Guid CompanyId { get; set; }
+    
+    [ForeignKey("CompanyId")]
+    public virtual Company Company { get; set; } = null!;
 }

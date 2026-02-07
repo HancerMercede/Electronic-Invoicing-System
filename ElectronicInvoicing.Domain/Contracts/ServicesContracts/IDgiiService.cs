@@ -4,8 +4,10 @@ namespace ElectronicInvoicing.Domain.Contracts.ServicesContracts;
 
 public interface IDgiiService
 {
-    Task<string?> GetAuthTokenAsync(string certificatePath, string password);
+    Task<string?> GetAuthTokenAsync(DigitalCertificateModel cert);
 
   
     Task<DgiiResponse>  SendInvoiceAsync(string signedXml, string token);
+
+    Task<DgiiResponse> GetStatusAsync(string trackId, string token);
 }

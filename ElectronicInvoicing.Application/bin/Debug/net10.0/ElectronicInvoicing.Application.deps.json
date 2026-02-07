@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "ElectronicInvoicing.Application/1.0.0": {
+        "dependencies": {
+          "ElectronicInvoicing.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ElectronicInvoicing.Application.dll": {}
+        }
+      },
+      "ElectronicInvoicing.Domain/1.0.0": {
+        "runtime": {
+          "ElectronicInvoicing.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ElectronicInvoicing.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ElectronicInvoicing.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

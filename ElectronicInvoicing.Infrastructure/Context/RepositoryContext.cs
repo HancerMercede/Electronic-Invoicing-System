@@ -7,6 +7,7 @@ public class RepositoryContext(DbContextOptions<RepositoryContext> options) : Db
 {
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.HasDefaultSchema("public");
         base.OnModelCreating(modelBuilder);
     }
     

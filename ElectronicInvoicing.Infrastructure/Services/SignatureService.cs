@@ -1,6 +1,8 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 using System.Xml;
 using ElectronicInvoicing.Domain.Contracts.ServicesContracts;
+using ElectronicInvoicing.Domain.Entities;
+using ElectronicInvoicing.Infrastructure.ExternalsModels;
 using FirmaXadesNetCore;
 using FirmaXadesNetCore.Crypto;
 using FirmaXadesNetCore.Signature.Parameters;
@@ -10,12 +12,11 @@ namespace ElectronicInvoicing.Infrastructure.Services;
 
 public class SignatureService:ISignatureService
 {
-    public async Task<(string SignedXml, string SecurityCode)> SignXmlAsync(string xmlContent, string certificatePath, string password)
+    public async Task<(string SignedXml, string SecurityCode)> SignXmlAsync(string xmlContent, DigitalCertificateModel cert)
     {
         return await Task.Run(async () =>
         {
-            byte[] certBytes = await File.ReadAllBytesAsync(certificatePath);
-            using var certificate = new X509Certificate2(certBytes, password, 
+            using var certificate = new X509Certificate2(cert.Content, cert.Password, 
                 X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable);
 
         
@@ -23,7 +24,7 @@ public class SignatureService:ISignatureService
             var parameters = new SignatureParameters
             {
                 SignaturePolicyInfo = null,
-                SignaturePackaging = SignaturePackaging.INTERNALLY_DETACHED,
+                SignaturePackaging = SignaturePackaging.ENVELOPED,
                 DataFormat = new DataFormat { MimeType = "text/xml" },
                 Signer = new Signer(certificate)
             };

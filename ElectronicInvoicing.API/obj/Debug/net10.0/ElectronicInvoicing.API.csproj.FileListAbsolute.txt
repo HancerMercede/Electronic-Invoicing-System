@@ -124,3 +124,10 @@ E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\zh-Hans\Microso
 E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\ElectronicInvoicing.Domain.dll
 E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\ElectronicInvoicing.Domain.pdb
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\BouncyCastle.Crypto.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\FirmaXadesNetCore.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\ElectronicInvoicing.Application.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\ElectronicInvoicing.Application.pdb
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll

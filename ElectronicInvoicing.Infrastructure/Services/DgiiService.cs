@@ -10,26 +10,52 @@ using Microsoft.Extensions.Logging;
 
 namespace ElectronicInvoicing.Infrastructure.Services;
 
-public class DgiiService(IHttpClientFactory httpClientFactory, ISignatureService signatureService, IMemoryCache memoryCache, ILogger<DgiiService> logger) : IDgiiService
+public class DgiiService(IHttpClientFactory httpClientFactory, 
+    ISignatureService signatureService,
+    IMemoryCache memoryCache, 
+    ILogger<DgiiService> logger) 
+    : IDgiiService
 {
     
-    public async Task<string?> GetAuthTokenAsync(string certificatePath, string password)
+    public async Task<string?> GetAuthTokenAsync(DigitalCertificateModel cert)
     {
-        string cacheKey = $"DGII_Token_{certificatePath.GetHashCode()}";
+        string cacheKey = $"DGII_Token_{cert.Rnc}";
         
         if (memoryCache.TryGetValue(cacheKey, out string? cachedToken)) return cachedToken;
 
         var client = httpClientFactory.CreateClient("DgiiClient");
         
-        var seedXml = await client.GetStringAsync("autenticacion/semilla");
-        var (signedSeed, _) = await signatureService.SignXmlAsync(seedXml, certificatePath, password);
+        var seedXml = await client.GetStringAsync("api/Autenticacion/Semilla");
+        
+        
+        var xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(seedXml);
+        
+        string seedValue = xmlDoc.GetElementsByTagName("valor")[0]?.InnerText ??
+                           throw new Exception("It could not be retrieved the seed value");
+        
+        string rncEmisor = cert.Rnc; 
+        
+        string xmlToSign = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+                              <OficioSemillaModel xmlns=""http://dgii.gov.do/core/cf"">
+                                   <rnc>{rncEmisor}</rnc>
+                                   <semilla>{seedValue}</semilla>
+                              </OficioSemillaModel>";
+        
+        var (signedSeed, _) = await signatureService.SignXmlAsync(xmlToSign, cert);
 
         var content = new StringContent(signedSeed, Encoding.UTF8, "application/xml");
-        var response = await client.PostAsync("autenticacion/token", content);
+        var response = await client.PostAsync("api/Autenticacion/ValidarSemilla", content);
+        
+        if (!response.IsSuccessStatusCode)
+        {
+            var jsonError = await response.Content.ReadAsStringAsync();
+            throw new Exception($"La DGII dice: {jsonError}");
+        }
         
         var result = DeserializeXml<DgiiTokenResponse>(await response.Content.ReadAsStringAsync());
         
-        memoryCache.Set(cacheKey, result.Token, TimeSpan.FromHours(23));
+        memoryCache.Set(cacheKey, result.Token, TimeSpan.FromMinutes(55));
 
         return result.Token;
     }
@@ -39,13 +65,16 @@ public class DgiiService(IHttpClientFactory httpClientFactory, ISignatureService
         var client = httpClientFactory.CreateClient("DgiiClient");
         
         var request = new HttpRequestMessage(HttpMethod.Post, "recepcion/api/recepcion/ecf");
+        
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        
         request.Content = new StringContent(signedXml, Encoding.UTF8, "application/xml");
         
         var response = await client.SendAsync(request);
         var xmlResponse = await response.Content.ReadAsStringAsync();
-
-        if (response.IsSuccessStatusCode || (int)response.StatusCode == 400) // 400 puede traer errores de validación
+        logger.LogError(xmlResponse);
+        
+        if (response.IsSuccessStatusCode || (int)response.StatusCode == 400) 
         {
             if (string.IsNullOrWhiteSpace(xmlResponse) || !xmlResponse.Trim().StartsWith("<"))
                 return new DgiiResponse { Message = "DGII returned an empty or invalid response." };
@@ -55,7 +84,25 @@ public class DgiiService(IHttpClientFactory httpClientFactory, ISignatureService
 
         return new DgiiResponse { Message = $"Connection Error: {response.StatusCode}" };
     }
+
+    public async Task<DgiiResponse> GetStatusAsync(string trackId, string token)
+    {
+        var client = httpClientFactory.CreateClient("DgiiClient");
     
+        var request = new HttpRequestMessage(HttpMethod.Get, $"recepcion/api/consultas/trackid?id={trackId}");
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+        var response = await client.SendAsync(request);
+        var xmlResponse = await response.Content.ReadAsStringAsync();
+
+        if (response.IsSuccessStatusCode)
+        {
+            return DeserializeXml<DgiiResponse>(xmlResponse);
+        }
+
+        return new DgiiResponse { Message = $"Error consulting status: {response.StatusCode}" };
+    }
+
     private T DeserializeXml<T>(string xml)
     {
         var serializer = new XmlSerializer(typeof(T));

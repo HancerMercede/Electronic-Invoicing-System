@@ -1,0 +1,15 @@
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\bin\Debug\net10.0\ElectronicInvoicing.Application.deps.json
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\bin\Debug\net10.0\ElectronicInvoicing.Application.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\bin\Debug\net10.0\ElectronicInvoicing.Application.pdb
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\bin\Debug\net10.0\ElectronicInvoicing.Domain.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\bin\Debug\net10.0\ElectronicInvoicing.Domain.pdb
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ElectronicInvoicing.Application.csproj.AssemblyReference.cache
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ElectronicInvoicing.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ElectronicInvoicing.Application.AssemblyInfoInputs.cache
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ElectronicInvoicing.Application.AssemblyInfo.cs
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ElectronicInvoicing.Application.csproj.CoreCompileInputs.cache
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\Electron.A458E800.Up2Date
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ElectronicInvoicing.Application.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\refint\ElectronicInvoicing.Application.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ElectronicInvoicing.Application.pdb
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ref\ElectronicInvoicing.Application.dll

@@ -9,5 +9,9 @@ public interface IInvoiceRepository
     
     Task<Invoice> CreateInvoiceAsync(Guid companyId, Invoice invoice);
     
+    Task<Invoice> UpdateAsync(Guid companyId, Invoice invoice);
+    
     Task DeleteInvoiceAsync(Guid companyId, Invoice invoice);
+    
+    
 }

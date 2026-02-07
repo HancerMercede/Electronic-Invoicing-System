@@ -1,4 +1,6 @@
-﻿namespace ElectronicInvoicing.Domain.Contracts.ServicesContracts;
+﻿using ElectronicInvoicing.Domain.Entities;
+
+namespace ElectronicInvoicing.Domain.Contracts.ServicesContracts;
 
 public interface ISignatureService
 {
@@ -9,5 +11,5 @@ public interface ISignatureService
     /// <param name="certificatePath">The file system path to the .p12 or .pfx certificate.</param>
     /// <param name="password">The private key password for the certificate.</param>
     /// <returns>A digitally signed XML string ready for DGII submission.</returns>
-    Task<(string SignedXml, string SecurityCode)> SignXmlAsync(string xmlContent, string certificatePath, string password);
+    Task<(string SignedXml, string SecurityCode)> SignXmlAsync(string xmlContent, DigitalCertificateModel cert);
 }
