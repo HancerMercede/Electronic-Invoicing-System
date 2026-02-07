@@ -15,3 +15,4 @@ E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\Elec
 E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\bin\Debug\net10.0\ElectronicInvoicing.Domain.dll
 E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\bin\Debug\net10.0\ElectronicInvoicing.Domain.pdb
 E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\Electron.5BACEB4F.Up2Date
+E:\ElectronicInvoicing\ElectronicInvoicing.Infrastructure\obj\Debug\net10.0\ElectronicInvoicing.Infrastructure.sourcelink.json

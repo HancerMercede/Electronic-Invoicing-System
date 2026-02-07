@@ -17,11 +17,14 @@ public class InvoiceProcessorService(IXmlService xmlService, ISignatureService s
         {
             var xmlRaw = await xmlService.GenerateInvoiceXmlAsync(invoice);
 
-            DigitalCertificateModel cert = new();
+             var cert = new DigitalCertificateModel
+                        {
+                            Content = invoice.Company.DigitalCertificate,
+                            Password = invoice.Company.CertificatePassword,
+                            Rnc = invoice.Company.Rnc
+                        };
             
-            cert.Content = invoice.Company.DigitalCertificate; 
-            cert.Password = invoice.Company.CertificatePassword;
-            cert.Rnc = invoice.Company.Rnc;
+          
             var (signedXml, securityCode) = await signatureService.SignXmlAsync(xmlRaw, cert);
             
             invoice.SecurityCode = securityCode;
@@ -29,6 +32,7 @@ public class InvoiceProcessorService(IXmlService xmlService, ISignatureService s
             await unitOfWork.InvoiceRepository.UpdateAsync(companyId, invoice);
             
             var token = await dgiiService.GetAuthTokenAsync(cert);
+            
             var response = await dgiiService.SendInvoiceAsync(signedXml, token!);
             
             if (response.Success)

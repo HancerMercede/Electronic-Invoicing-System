@@ -131,3 +131,4 @@ E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\ElectronicInvoi
 E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\obj\Debug\net10.0\ElectronicInvoicing.API.sourcelink.json

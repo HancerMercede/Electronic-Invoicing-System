@@ -13,3 +13,4 @@ E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\Electro
 E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\refint\ElectronicInvoicing.Application.dll
 E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ElectronicInvoicing.Application.pdb
 E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ref\ElectronicInvoicing.Application.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ElectronicInvoicing.Application.sourcelink.json

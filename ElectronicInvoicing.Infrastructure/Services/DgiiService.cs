@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -10,7 +11,8 @@ using Microsoft.Extensions.Logging;
 
 namespace ElectronicInvoicing.Infrastructure.Services;
 
-public class DgiiService(IHttpClientFactory httpClientFactory, 
+public class DgiiService(
+    IHttpClientFactory httpClientFactory, 
     ISignatureService signatureService,
     IMemoryCache memoryCache, 
     ILogger<DgiiService> logger) 
@@ -32,32 +34,43 @@ public class DgiiService(IHttpClientFactory httpClientFactory,
         xmlDoc.LoadXml(seedXml);
         
         string seedValue = xmlDoc.GetElementsByTagName("valor")[0]?.InnerText ??
-                           throw new Exception("It could not be retrieved the seed value");
+                           throw new InvalidOperationException("It could not be retrieved the seed value");
         
-        string rncEmisor = cert.Rnc; 
-        
-        string xmlToSign = $@"<?xml version=""1.0"" encoding=""utf-8""?>
-                              <OficioSemillaModel xmlns=""http://dgii.gov.do/core/cf"">
-                                   <rnc>{rncEmisor}</rnc>
-                                   <semilla>{seedValue}</semilla>
-                              </OficioSemillaModel>";
-        
-        var (signedSeed, _) = await signatureService.SignXmlAsync(xmlToSign, cert);
+        string rncEmisor = cert.Rnc;
 
+        var xmlBuilder = new StringBuilder();
+       xmlBuilder.Append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+       xmlBuilder.Append("<SemillaModel xmlns=\"http://dgii.gov.do/core/cf");
+       xmlBuilder.Append($"<RncEmisor>{rncEmisor}</RncEmisor>");
+       xmlBuilder.Append($"<Semilla>{seedValue}</Semilla>");
+       xmlBuilder.Append("</SemillaModel>");
+
+        string xmlToSign = xmlBuilder.ToString(); 
+            
+        logger.LogDebug("XML to sign: {XmlToSign}", xmlToSign);
+        
+        var (signedSeed, securityCode) = await signatureService.SignXmlAsync(xmlToSign, cert);
+        
         var content = new StringContent(signedSeed, Encoding.UTF8, "application/xml");
         var response = await client.PostAsync("api/Autenticacion/ValidarSemilla", content);
+        
         
         if (!response.IsSuccessStatusCode)
         {
             var jsonError = await response.Content.ReadAsStringAsync();
-            throw new Exception($"La DGII dice: {jsonError}");
+            throw new InvalidOperationException($"The DGII says: {jsonError}");
         }
         
-        var result = DeserializeXml<DgiiTokenResponse>(await response.Content.ReadAsStringAsync());
-        
-        memoryCache.Set(cacheKey, result.Token, TimeSpan.FromMinutes(55));
+        var result = await response.Content.ReadFromJsonAsync<DgiiTokenResponse>();
 
-        return result.Token;
+        if (result?.Token is null)
+        {
+            logger.LogDebug("DGII returned a null token: {response}", result);
+        }
+        
+        memoryCache.Set(cacheKey, result?.Token, TimeSpan.FromMinutes(55));
+
+        return result?.Token;
     }
 
     public async Task<DgiiResponse> SendInvoiceAsync(string signedXml, string token)
