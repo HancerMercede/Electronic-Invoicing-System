@@ -16,6 +16,7 @@ public class SignatureService:ISignatureService
             using var certificate = new X509Certificate2(cert.Content, cert.Password, 
                 X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable);
             
+            
             var xmlDoc = new XmlDocument { PreserveWhitespace = true };
             xmlDoc.LoadXml(xmlContent);
 
@@ -24,14 +25,18 @@ public class SignatureService:ISignatureService
                 SigningKey =  certificate.GetRSAPrivateKey(),
             };
 
+            signedXml.SignedInfo?.CanonicalizationMethod = SignedXml.XmlDsigExcC14NTransformUrl;
+            
+           
             var reference = new Reference
             {
               Uri = "",
               DigestMethod = SignedXml.XmlDsigSHA256Url
             };
             
-            reference.AddTransform(new XmlDsigEnvelopedSignatureTransform());
-            signedXml.AddReference(reference);
+             reference.AddTransform(new XmlDsigEnvelopedSignatureTransform());
+         
+             signedXml.AddReference(reference);
 
             var keyInfo = new KeyInfo();
             keyInfo.AddClause(new KeyInfoX509Data(certificate));

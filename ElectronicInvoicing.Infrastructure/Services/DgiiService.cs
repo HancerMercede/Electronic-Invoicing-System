@@ -40,7 +40,7 @@ public class DgiiService(
 
         var xmlBuilder = new StringBuilder();
        xmlBuilder.Append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-       xmlBuilder.Append("<SemillaModel xmlns=\"http://dgii.gov.do/core/cf");
+       xmlBuilder.Append("<SemillaModel xmlns=\"http://dgii.gov.do/core/cf\">");
        xmlBuilder.Append($"<RncEmisor>{rncEmisor}</RncEmisor>");
        xmlBuilder.Append($"<Semilla>{seedValue}</Semilla>");
        xmlBuilder.Append("</SemillaModel>");
