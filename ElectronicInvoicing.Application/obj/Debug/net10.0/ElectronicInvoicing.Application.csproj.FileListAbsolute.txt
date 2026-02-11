@@ -14,3 +14,5 @@ E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\refint\
 E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ElectronicInvoicing.Application.pdb
 E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ref\ElectronicInvoicing.Application.dll
 E:\ElectronicInvoicing\ElectronicInvoicing.Application\obj\Debug\net10.0\ElectronicInvoicing.Application.sourcelink.json
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\bin\Debug\net10.0\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Application\bin\Debug\net10.0\Microsoft.Extensions.Primitives.dll

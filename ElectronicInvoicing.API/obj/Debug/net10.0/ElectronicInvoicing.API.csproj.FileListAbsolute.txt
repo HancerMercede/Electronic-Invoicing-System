@@ -134,3 +134,12 @@ E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Swashbuckle.Asp
 E:\ElectronicInvoicing\ElectronicInvoicing.API\obj\Debug\net10.0\ElectronicInvoicing.API.sourcelink.json
 E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Mapster.dll
 E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Mapster.Core.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\BCrypt.Net-Next.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.API\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
