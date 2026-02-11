@@ -1,3 +1,4 @@
+using ElectronicInvoicing.API.Endpoints;
 using ElectronicInvoicing.API.Helpers;
 using ElectronicInvoicing.Domain.Contracts.ServicesContracts;
 using Microsoft.AspNetCore.Mvc;
@@ -46,6 +47,9 @@ else
     app.UseHsts();
 
 app.UseHttpsRedirection();
+
+// Map endpoint groups
+app.MapCompanyEndpoints();
 
 app.MapGet("/Greetings", () => "Hello I am online!!");
 

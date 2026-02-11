@@ -29,6 +29,12 @@ public class CompanyRepository(RepositoryContext repositoryContext) : BaseReposi
         return company;
     }
 
+    public async Task<Company> UpdateCompanyAsync(Company company)
+    {
+        await Update(company);
+        return company;
+    }
+
     public async Task DeleteCompanyAsync(Company company)
     {
         await  Delete(company);

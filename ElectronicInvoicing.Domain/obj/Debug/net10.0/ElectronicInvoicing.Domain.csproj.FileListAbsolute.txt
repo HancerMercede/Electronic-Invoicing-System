@@ -9,3 +9,4 @@ E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\ElectronicIn
 E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\refint\ElectronicInvoicing.Domain.dll
 E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\ElectronicInvoicing.Domain.pdb
 E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\ref\ElectronicInvoicing.Domain.dll
+E:\ElectronicInvoicing\ElectronicInvoicing.Domain\obj\Debug\net10.0\ElectronicInvoicing.Domain.sourcelink.json

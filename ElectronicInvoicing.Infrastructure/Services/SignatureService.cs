@@ -17,7 +17,7 @@ public class SignatureService:ISignatureService
                 X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable);
             
             
-            var xmlDoc = new XmlDocument { PreserveWhitespace = true };
+            var xmlDoc = new XmlDocument { PreserveWhitespace = false };
             xmlDoc.LoadXml(xmlContent);
 
             var signedXml = new SignedXml(xmlDoc)

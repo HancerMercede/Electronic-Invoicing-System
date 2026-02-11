@@ -9,5 +9,7 @@ public interface ICompanyRepository
     
     Task<Company> CreateCompanyAsync(Company company);
     
+    Task<Company> UpdateCompanyAsync(Company company);
+    
     Task DeleteCompanyAsync(Company company);
 }

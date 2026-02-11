@@ -50,9 +50,13 @@ public class DgiiService(
         logger.LogDebug("XML to sign: {XmlToSign}", xmlToSign);
         
         var (signedSeed, securityCode) = await signatureService.SignXmlAsync(xmlToSign, cert);
+
+
+        using var formContent = new MultipartFormDataContent();
+        var content = new StringContent(signedSeed, Encoding.UTF8, "text/xml");
+        formContent.Add(content, "xml","semilla.xml");
         
-        var content = new StringContent(signedSeed, Encoding.UTF8, "application/xml");
-        var response = await client.PostAsync("api/Autenticacion/ValidarSemilla", content);
+        var response = await client.PostAsync("api/autenticacion/validarsemilla", content);
         
         
         if (!response.IsSuccessStatusCode)
@@ -81,7 +85,11 @@ public class DgiiService(
         
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
         
-        request.Content = new StringContent(signedXml, Encoding.UTF8, "application/xml");
+        var formContent = new MultipartFormDataContent();
+        var content = new StringContent(signedXml, Encoding.UTF8, "text/xml");
+        formContent.Add(content, "xml", "factura.xml");
+        
+        request.Content = formContent;
         
         var response = await client.SendAsync(request);
         var xmlResponse = await response.Content.ReadAsStringAsync();

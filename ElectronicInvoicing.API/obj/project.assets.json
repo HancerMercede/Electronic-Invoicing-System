@@ -43,6 +43,27 @@
           }
         }
       },
+      "Mapster/10.0.0-pre01": {
+        "type": "package",
+        "dependencies": {
+          "Mapster.Core": "10.0.0-pre01"
+        },
+        "compile": {
+          "lib/net10.0/Mapster.dll": {}
+        },
+        "runtime": {
+          "lib/net10.0/Mapster.dll": {}
+        }
+      },
+      "Mapster.Core/10.0.0-pre01": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Mapster.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Mapster.Core.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.OpenApi/10.0.2": {
         "type": "package",
         "dependencies": {
@@ -864,6 +885,34 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "Mapster/10.0.0-pre01": {
+      "sha512": "p3MDNxabwTyrxKTudmHajv3ENIhyfkdD7POxK7kvFFI5H90ORawVSpJ6zvr1SBEv46oCZI7Ajmr4yRBQA7/vdA==",
+      "type": "package",
+      "path": "mapster/10.0.0-pre01",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net10.0/Mapster.dll",
+        "lib/net8.0/Mapster.dll",
+        "lib/net9.0/Mapster.dll",
+        "mapster.10.0.0-pre01.nupkg.sha512",
+        "mapster.nuspec"
+      ]
+    },
+    "Mapster.Core/10.0.0-pre01": {
+      "sha512": "QXtgC4bDQhky9qFA+oMe2vaQdsT+FAAZb9CwuOeqHkAsKQken0XKutXN3SFMs/o7guJFzCe7hLG1KLwD3Wa7sA==",
+      "type": "package",
+      "path": "mapster.core/10.0.0-pre01",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/Mapster.Core.dll",
+        "mapster.core.10.0.0-pre01.nupkg.sha512",
+        "mapster.core.nuspec"
       ]
     },
     "Microsoft.AspNetCore.OpenApi/10.0.2": {
@@ -2483,6 +2532,7 @@
     "net10.0": [
       "ElectronicInvoicing.Application >= 1.0.0",
       "ElectronicInvoicing.Infrastructure >= 1.0.0",
+      "Mapster >= 10.0.0-pre01",
       "Microsoft.AspNetCore.OpenApi >= 10.0.2",
       "Microsoft.EntityFrameworkCore >= 10.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.2",
@@ -2549,6 +2599,10 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "Mapster": {
+            "target": "Package",
+            "version": "[10.0.0-pre01, )"
+          },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[10.0.2, )"
@@ -2595,7 +2649,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

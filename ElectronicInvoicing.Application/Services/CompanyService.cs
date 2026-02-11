@@ -23,6 +23,11 @@ public class CompanyService(IUnitOfWork unitOfWork) : ICompanyService
         return result;
     }
 
+    public async Task<Company> UpdateCompanyAsync(Company company)
+    {
+       return await unitOfWork.CompanyRepository.UpdateCompanyAsync(company);
+    }
+
     public async Task DeleteCompanyAsync(Company company)
     {
         await unitOfWork.CompanyRepository.DeleteCompanyAsync(company);

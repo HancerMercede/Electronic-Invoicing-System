@@ -10,6 +10,7 @@
         "dependencies": {
           "ElectronicInvoicing.Application": "1.0.0",
           "ElectronicInvoicing.Infrastructure": "1.0.0",
+          "Mapster": "10.0.0-pre01",
           "Microsoft.AspNetCore.OpenApi": "10.0.2",
           "Microsoft.EntityFrameworkCore": "10.0.2",
           "Microsoft.EntityFrameworkCore.Design": "10.0.2",
@@ -45,6 +46,25 @@
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
+          }
+        }
+      },
+      "Mapster/10.0.0-pre01": {
+        "dependencies": {
+          "Mapster.Core": "10.0.0-pre01"
+        },
+        "runtime": {
+          "lib/net10.0/Mapster.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
+          }
+        }
+      },
+      "Mapster.Core/10.0.0-pre01": {
+        "runtime": {
+          "lib/netstandard2.0/Mapster.Core.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
           }
         }
       },
@@ -612,6 +632,20 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "Mapster/10.0.0-pre01": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p3MDNxabwTyrxKTudmHajv3ENIhyfkdD7POxK7kvFFI5H90ORawVSpJ6zvr1SBEv46oCZI7Ajmr4yRBQA7/vdA==",
+      "path": "mapster/10.0.0-pre01",
+      "hashPath": "mapster.10.0.0-pre01.nupkg.sha512"
+    },
+    "Mapster.Core/10.0.0-pre01": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QXtgC4bDQhky9qFA+oMe2vaQdsT+FAAZb9CwuOeqHkAsKQken0XKutXN3SFMs/o7guJFzCe7hLG1KLwD3Wa7sA==",
+      "path": "mapster.core/10.0.0-pre01",
+      "hashPath": "mapster.core.10.0.0-pre01.nupkg.sha512"
     },
     "Microsoft.AspNetCore.OpenApi/10.0.2": {
       "type": "package",
