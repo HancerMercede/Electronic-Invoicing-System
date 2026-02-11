@@ -9,5 +9,7 @@ public interface IInvoiceItemRepository
     
     Task<InvoiceItem> CreateInvoiceItem(Guid invoiceId, InvoiceItem invoiceItem);
     
+    Task<InvoiceItem>  UpdateInvoiceItem(Guid invoiceId, Guid invoiceItemId, InvoiceItem invoiceItem);
+    
     Task DeleteInvoiceItem(Guid invoiceId, InvoiceItem invoiceItem);
 }

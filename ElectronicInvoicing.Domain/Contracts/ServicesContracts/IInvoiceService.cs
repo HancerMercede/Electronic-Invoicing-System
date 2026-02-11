@@ -10,5 +10,7 @@ public interface IInvoiceService
     
     Task<Invoice> CreateInvoiceAsync(Guid companyId, Invoice invoice);
     
+    Task<Invoice>  UpdateInvoiceAsync(Guid invoiceId, Invoice invoice);
+    
     Task DeleteInvoiceAsync(Guid companyId, Invoice invoice);
 }

@@ -26,6 +26,13 @@ public class InvoiceItemRepository(RepositoryContext repositoryContext):BaseRepo
         return invoiceItem;
     }
 
+    public async Task<InvoiceItem> UpdateInvoiceItem(Guid invoiceId, Guid invoiceItemId, InvoiceItem invoiceItem)
+    {
+        invoiceItem.InvoiceId = invoiceId;
+        await Update(invoiceItem);
+        return invoiceItem;
+    }
+
     public async Task DeleteInvoiceItem(Guid invoiceId, InvoiceItem invoiceItem)
     {
         var invoiceItemDb = await FindByCondiction(i => i.InvoiceId == invoiceId && i.Id == invoiceItem.Id, false)

@@ -21,6 +21,11 @@ public class InvoiceItemService(IUnitOfWork unitOfWork): IInvoiceItemService
         return  await unitOfWork.InvoiceItemRepository.CreateInvoiceItem(invoiceId, invoiceItem);
     }
 
+    public async Task<InvoiceItem> UpdateInvoiceItem(Guid invoiceId, Guid invoiceItemId, InvoiceItem invoiceItem)
+    {
+        return await unitOfWork.InvoiceItemRepository.UpdateInvoiceItem(invoiceId, invoiceItemId, invoiceItem);
+    }
+
     public async Task DeleteInvoiceItem(Guid invoiceId, InvoiceItem invoiceItem)
     {
         await unitOfWork.InvoiceItemRepository.DeleteInvoiceItem(invoiceId, invoiceItem);

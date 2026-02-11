@@ -50,6 +50,7 @@ app.UseHttpsRedirection();
 
 // Map endpoint groups
 app.MapCompanyEndpoints();
+app.MapInvoiceEndpoints();
 
 app.MapGet("/Greetings", () => "Hello I am online!!");
 
