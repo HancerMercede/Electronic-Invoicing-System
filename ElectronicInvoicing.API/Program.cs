@@ -53,7 +53,7 @@ builder.Services.AddSwaggerGen(options =>
     }
 });
 
-
+// Services
 builder.Services.ConfigureContext(builder.Configuration);
 builder.Services.ConfigureTenantService();
 builder.Services.ConfigureUnitOfWork();
@@ -63,6 +63,7 @@ builder.Services.ConfiguredHttpClient(builder.Configuration);
 builder.Services.ConfigureSignatureService();
 builder.Services.ConfigureInvoiceProcessorService();
 builder.Services.ConfigureXmlService();
+builder.Services.ConfigureEncryptionService();
 
 var app = builder.Build();
 

@@ -78,5 +78,10 @@ public static class ServicesExtensions
         {
             services.AddScoped<IXmlService, XmlService>();
         }
+        
+        public void ConfigureEncryptionService()
+        {
+            services.AddSingleton<IEncryptionService, EncryptionService>();
+        }
     }
 }

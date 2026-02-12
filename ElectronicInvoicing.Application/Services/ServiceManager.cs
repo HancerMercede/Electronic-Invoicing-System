@@ -4,9 +4,9 @@ using Microsoft.Extensions.Configuration;
 
 namespace ElectronicInvoicing.Application.Services;
 
-public class ServiceManager(IUnitOfWork unitOfWork, IConfiguration configuration): IServiceManager
+public class ServiceManager(IUnitOfWork unitOfWork, IConfiguration configuration, IEncryptionService encryptionService): IServiceManager
 {
-   private readonly Lazy<ICompanyService> _companyService = new(() => new CompanyService(unitOfWork));
+   private readonly Lazy<ICompanyService> _companyService = new(() => new CompanyService(unitOfWork, encryptionService));
    private readonly Lazy<IInvoiceService> _invoiceService = new(() => new InvoiceService(unitOfWork));
    private readonly Lazy<IInvoiceItemService>  _invoiceItemService = new(() => new InvoiceItemService(unitOfWork));
    private readonly Lazy<IAuthService> _authService = new(() => new AuthService(unitOfWork, configuration));

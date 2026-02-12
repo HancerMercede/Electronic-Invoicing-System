@@ -14,8 +14,8 @@ public class UnitOfWork(RepositoryContext repositoryContext) : IUnitOfWork
     public ICompanyRepository CompanyRepository => _companyRepository.Value;
     public IInvoiceItemRepository InvoiceItemRepository => _invoiceItemRepository.Value;
     public IInvoiceRepository InvoiceRepository => _invoiceRepository.Value;
-   
+
     public IUserRepository UserRepository => _userRepository.Value;
-    
+
     public async Task SaveChanges() =>  await repositoryContext.SaveChangesAsync();
 }

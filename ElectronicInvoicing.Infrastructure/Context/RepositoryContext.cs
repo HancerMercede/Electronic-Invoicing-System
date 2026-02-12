@@ -14,4 +14,5 @@ public class RepositoryContext(DbContextOptions<RepositoryContext> options) : Db
     protected DbSet<Company>  Companies { get; set; } 
     protected DbSet<Invoice>  Invoices { get; set; }
     protected DbSet<InvoiceItem>  InvoiceItems { get; set; }
+    protected DbSet<User>  Users { get; set; }
 }
