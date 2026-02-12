@@ -1,0 +1,6 @@
+{
+  "ElectronicInvoicing.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\ElectronicInvoicing\\ElectronicInvoicing.API",
+  "ElectronicInvoicing.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\ElectronicInvoicing\\ElectronicInvoicing.Application",
+  "ElectronicInvoicing.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\ElectronicInvoicing\\ElectronicInvoicing.Domain",
+  "ElectronicInvoicing.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\ElectronicInvoicing\\ElectronicInvoicing.Infrastructure"
+}

@@ -10,7 +10,7 @@ public class CompanyService(IUnitOfWork unitOfWork, IEncryptionService encryptio
     {
         var company = await unitOfWork.CompanyRepository.GetCompanyByIdAsync(companyId);
 
-        if (company != null)
+        if (company is not null)
         {
             // Decrypt sensitive data before returning
             DecryptSensitiveData(company);

@@ -6,4 +6,5 @@
   <Project Path="ElectronicInvoicing.Application/ElectronicInvoicing.Application.csproj" />
   <Project Path="ElectronicInvoicing.Domain/ElectronicInvoicing.Domain.csproj" />
   <Project Path="ElectronicInvoicing.Infrastructure/ElectronicInvoicing.Infrastructure.csproj" />
+  <Project Path="ElectronicInvoicing.Test/ElectronicInvoicing.Test.csproj" />
 </Solution>
